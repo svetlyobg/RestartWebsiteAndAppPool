@@ -58,7 +58,8 @@ namespace RestartWebsiteAndAppPool
             // 
             // textBox2
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.textBox2.BackColor = System.Drawing.SystemColors.InfoText;
+            this.textBox2.ForeColor = System.Drawing.Color.Green;
             this.textBox2.Location = new System.Drawing.Point(13, 140);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";

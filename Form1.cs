@@ -49,7 +49,7 @@ namespace RestartWebsiteAndAppPool
         {
             try
             {
-              
+
                 textBox2.Clear();
                 textBox2.Text = RunScript(textBox1.Text);
                
@@ -69,7 +69,7 @@ namespace RestartWebsiteAndAppPool
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            this.AcceptButton = button1;
         }
     }
 }
