@@ -1,0 +1,15 @@
+C:\Users\svetlozar\source\repos\RestartWebsiteAndAppPool\bin\Debug\RestartWebsiteAndAppPool.exe.config
+C:\Users\svetlozar\source\repos\RestartWebsiteAndAppPool\bin\Debug\RestartWebsiteAndAppPool.exe
+C:\Users\svetlozar\source\repos\RestartWebsiteAndAppPool\bin\Debug\RestartWebsiteAndAppPool.pdb
+C:\Users\svetlozar\source\repos\RestartWebsiteAndAppPool\bin\Debug\Cake.Powershell.dll
+C:\Users\svetlozar\source\repos\RestartWebsiteAndAppPool\bin\Debug\System.Management.Automation.dll
+C:\Users\svetlozar\source\repos\RestartWebsiteAndAppPool\bin\Debug\Cake.Powershell.pdb
+C:\Users\svetlozar\source\repos\RestartWebsiteAndAppPool\bin\Debug\Cake.Powershell.xml
+C:\Users\svetlozar\source\repos\RestartWebsiteAndAppPool\obj\Debug\RestartWebsiteAndAppPool.csproj.AssemblyReference.cache
+C:\Users\svetlozar\source\repos\RestartWebsiteAndAppPool\obj\Debug\RestartWebsiteAndAppPool.Form1.resources
+C:\Users\svetlozar\source\repos\RestartWebsiteAndAppPool\obj\Debug\RestartWebsiteAndAppPool.Properties.Resources.resources
+C:\Users\svetlozar\source\repos\RestartWebsiteAndAppPool\obj\Debug\RestartWebsiteAndAppPool.csproj.GenerateResource.cache
+C:\Users\svetlozar\source\repos\RestartWebsiteAndAppPool\obj\Debug\RestartWebsiteAndAppPool.csproj.CoreCompileInputs.cache
+C:\Users\svetlozar\source\repos\RestartWebsiteAndAppPool\obj\Debug\RestartWebsiteAndAppPool.csproj.CopyComplete
+C:\Users\svetlozar\source\repos\RestartWebsiteAndAppPool\obj\Debug\RestartWebsiteAndAppPool.exe
+C:\Users\svetlozar\source\repos\RestartWebsiteAndAppPool\obj\Debug\RestartWebsiteAndAppPool.pdb
