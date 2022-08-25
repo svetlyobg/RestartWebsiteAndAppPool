@@ -43,3 +43,4 @@ C:\Users\Rumi\Documents\GitHub\RestartWebsiteAndAppPool\obj\Debug\RestartWebsite
 C:\Users\Rumi\Documents\GitHub\RestartWebsiteAndAppPool\obj\Debug\RestartWebsiteAndAppPool.csproj.CopyComplete
 C:\Users\Rumi\Documents\GitHub\RestartWebsiteAndAppPool\obj\Debug\RestartWebsiteAndAppPool.exe
 C:\Users\Rumi\Documents\GitHub\RestartWebsiteAndAppPool\obj\Debug\RestartWebsiteAndAppPool.pdb
+C:\Users\Rumi\Documents\GitHub\RestartWebsiteAndAppPool\obj\Debug\RestartWebsiteAndAppPool.csproj.SuggestedBindingRedirects.cache
