@@ -1,5 +1,6 @@
 #Restart a Web App Pool and IIS a Wesbsite
 #CopyLeft SVET :)
+#Not Working (yet) on PowerShell 7
 
 [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Drawing") 
 [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
@@ -11,7 +12,7 @@ $ComboBoxObject=[System.Windows.Forms.ComboBox]
   
 $Form = New-Object System.Windows.Forms.Form
 $Form.Size = New-Object System.Drawing.Size(850,510)
-$Form.Text = "AppPool and IIS Restarter (v1.0.4)"
+$Form.Text = "AppPool and IIS Restarter (v1.0.5)"
 $Form.StartPosition = "CenterScreen"
 $Icon = [system.drawing.icon]::ExtractAssociatedIcon($PSHOME + "\powershell.exe")
 $Form.MinimizeBox = $False
