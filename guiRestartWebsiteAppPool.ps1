@@ -23,10 +23,10 @@ $Form.BackColor='#ff7cab'
 
 # Output TextBox
 $textBoxOut = New-Object System.Windows.Forms.TextBox
-$textBoxOut.Location = New-Object System.Drawing.Size(5,50)
+$textBoxOut.Location = New-Object System.Drawing.Size(5,100)
 $textBoxOut.Multiline = $true;
 $textBoxOut.ScrollBars = "Vertical"
-$textBoxOut.Size = New-Object System.Drawing.Size(800,300)
+$textBoxOut.Size = New-Object System.Drawing.Size(800,150)
 $textBoxOut.Text = ""
 $form.Controls.Add($textBoxOut)
 
@@ -61,6 +61,7 @@ function GetServiceDetails{
     $ServiceName = $ddlService.SelectedItem
     $details = Get-Service -name $Servicename | Select-Object DisplayName, Status
     $lblStatus.Text = $details.status
+    
 
     if ($lblStatus.Text -eq 'Running'){
         $lblStatus.ForeColor = 'Green'        
@@ -80,8 +81,8 @@ $ddlService.Add_SelectedIndexChanged({GetServiceDetails})
 
 # Restart Button
 $ButtonRestart = New-Object System.Windows.Forms.Button 
-$ButtonRestart.Location = New-Object System.Drawing.Size(350,10) 
-$ButtonRestart.Size = New-Object System.Drawing.Size(170,30) 
+$ButtonRestart.Location = New-Object System.Drawing.Size(5,50) 
+$ButtonRestart.Size = New-Object System.Drawing.Size(200,30) 
 $ButtonRestart.Text = "ReStart"
 #$ButtonRestart.Add_Click({""})
 $ButtonRestart.Add_Click({restart})
@@ -89,6 +90,17 @@ GetServiceDetails
 $s = $ddlService.SelectedItem
 $ButtonRestart.Add_Click({$textBoxOut.Text = "$s was Successfully Restarted"})
 $Form.Controls.Add($ButtonRestart)
+
+# Output TextBox2
+$textBoxOut2 = New-Object System.Windows.Forms.TextBox
+$textBoxOut2.Location = New-Object System.Drawing.Size(5,300)
+$textBoxOut2.Multiline = $true;
+$textBoxOut2.ScrollBars = "Vertical"
+$textBoxOut2.Size = New-Object System.Drawing.Size(800,150)
+$textBoxOut2.Text = ""
+$var1 = Get-Service | Select-Object DisplayName, Status | Out-String
+$textBoxOut2.Text = $var1
+$form.Controls.Add($textBoxOut2)
 
 $Form.Add_Shown({$Form.Activate()})
 [void] $Form.ShowDialog()
