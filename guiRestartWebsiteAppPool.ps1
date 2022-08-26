@@ -12,7 +12,7 @@ $ComboBoxObject=[System.Windows.Forms.ComboBox]
   
 $Form = New-Object System.Windows.Forms.Form
 $Form.Size = New-Object System.Drawing.Size(850,510)
-$Form.Text = "AppPool and IIS Restarter (v1.0.5)"
+$Form.Text = "AppPool and IIS Restarter (v1.0.6)"
 $Form.StartPosition = "CenterScreen"
 $Icon = [system.drawing.icon]::ExtractAssociatedIcon($PSHOME + "\powershell.exe")
 $Form.MinimizeBox = $False
@@ -31,10 +31,10 @@ $textBoxOut.Size = New-Object System.Drawing.Size(800,150)
 $textBoxOut.Text = ""
 $form.Controls.Add($textBoxOut)
 
-$lblService = New-Object $LabelObject
-$lblService.Text='Services'
-$lblService.AutoSize=$true
-$lblService.Location = New-Object System.Drawing.Point(10,10)
+$lblWebsite = New-Object $LabelObject
+$lblWebsite.Text='Services'
+$lblWebsite.AutoSize=$true
+$lblWebsite.Location = New-Object System.Drawing.Point(10,10)
 
 $lblStatus = New-Object $LabelObject
 $lblStatus.Text = "Status: "
@@ -43,28 +43,28 @@ $lblStatus.Location = New-Object System.Drawing.Point(250,10)
 $form.Controls.Add($lblStatus)
 
 
-$ddlService=New-Object $ComboBoxObject
-#$ddlService.Width = '300'
-$ddlService.Location = New-Object System.Drawing.Point(80,10)
+$ddlWebsite=New-Object $ComboBoxObject
+#$ddlWebsite.Width = '300'
+$ddlWebsite.Location = New-Object System.Drawing.Point(80,10)
 
-#Get-Service | ForEach-Object {$ddlService.Items.Add($_.Name)}
-$Services = Get-Service
+#Get-Service | ForEach-Object {$ddlWebsite.Items.Add($_.Name)}
+$Websites = Get-Website
 
-foreach ($service in $Services){
-    $ddlService.Items.Add($service.name)
+foreach ($website in $Websites){
+    $ddlWebsite.Items.Add($website.name)
 }
 
 
-$Form.Controls.AddRange(@($lblService,$ddlService))
+$Form.Controls.AddRange(@($lblWebsite,$ddlWebsite))
 
 
-function GetServiceDetails{
-    $ServiceName = $ddlService.SelectedItem
-    $details = Get-Service -name $Servicename | Select-Object DisplayName, Status
-    $lblStatus.Text = $details.status
+function GetWebsiteDetails{
+    $websiteName = $ddlWebsite.SelectedItem
+    $details = Get-Website -name $websitename | Select-Object Name, State
+    $lblStatus.Text = $details.state
     
 
-    if ($lblStatus.Text -eq 'Running'){
+    if ($lblStatus.Text -eq 'Started'){
         $lblStatus.ForeColor = 'Green'        
     }
     Else {
@@ -72,13 +72,15 @@ function GetServiceDetails{
     }
 }
 
-#GetServiceDetails
+#GetWebsiteDetails
 
 function restart {
-    Restart-Service $ddlService.SelectedItem
+    Restart-WebAppPool $ddlWebsite.SelectedItem
+    Stop-Website $ddlWebsite.SelectedItem
+    Start-Website $ddlWebsite.SelectedItem
 }
 
-$ddlService.Add_SelectedIndexChanged({GetServiceDetails})
+$ddlWebsite.Add_SelectedIndexChanged({GetWebsiteDetails})
 
 # Restart Button
 $ButtonRestart = New-Object System.Windows.Forms.Button 
@@ -87,8 +89,8 @@ $ButtonRestart.Size = New-Object System.Drawing.Size(200,30)
 $ButtonRestart.Text = "ReStart"
 #$ButtonRestart.Add_Click({""})
 $ButtonRestart.Add_Click({restart})
-GetServiceDetails
-$s = $ddlService.SelectedItem
+GetWebsiteDetails
+$s = $ddlWebsite.SelectedItem
 $ButtonRestart.Add_Click({$textBoxOut.Text = "$s was Successfully Restarted"})
 $Form.Controls.Add($ButtonRestart)
 
@@ -99,7 +101,7 @@ $textBoxOut2.Multiline = $true;
 $textBoxOut2.ScrollBars = "Vertical"
 $textBoxOut2.Size = New-Object System.Drawing.Size(800,150)
 $textBoxOut2.Text = ""
-$var1 = Get-Service | Select-Object DisplayName, Status | Out-String
+$var1 = Get-Website | Select-Object Name, State | Out-String
 $textBoxOut2.Text = $var1
 $form.Controls.Add($textBoxOut2)
 
